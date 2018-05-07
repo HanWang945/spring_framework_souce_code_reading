@@ -23,36 +23,34 @@ import org.springframework.lang.Nullable;
  *    来配置bean对象。然而，一个实现可以简单的返回一个在Java代码内直接创建的Java对象。
  *    没有约束条件限制bean定义如何被存储在LDAP，RDBMS，XML配置文件内等等。鼓励实现在bean中支持引用（依赖注入）
  *
- * <p>In contrast to the methods in {@link ListableBeanFactory}, all of the
- * operations in this interface will also check parent factories if this is a
- * {@link HierarchicalBeanFactory}. If a bean is not found in this factory instance,
- * the immediate parent factory will be asked. Beans in this factory instance
- * are supposed to override beans of the same name in any parent factory.
+ *     和ListableBeanFactory内的方法进行对比，所有的在这个接口里面的操作都将检查父类工厂，如果它是一个HierarchicalBeanFactory。
+ *     如果一个bean在这个实例工厂内不被发现，则将会里面调用父类工厂。当前实例工厂内的bean支持被父类工厂的bean进行重写。
+ *
  *
  * <p>Bean factory implementations should support the standard bean lifecycle interfaces
  * as far as possible. The full set of initialization methods and their standard order is:
  * <ol>
- * <li>BeanNameAware's {@code setBeanName}
- * <li>BeanClassLoaderAware's {@code setBeanClassLoader}
- * <li>BeanFactoryAware's {@code setBeanFactory}
- * <li>EnvironmentAware's {@code setEnvironment}
- * <li>EmbeddedValueResolverAware's {@code setEmbeddedValueResolver}
- * <li>ResourceLoaderAware's {@code setResourceLoader}
+ * <li>BeanNameAware's {@code setBeanName}设置bean的名称
+ * <li>BeanClassLoaderAware's {@code setBeanClassLoader} 设置bean的类加载器
+ * <li>BeanFactoryAware's {@code setBeanFactory}设置bean工厂
+ * <li>EnvironmentAware's {@code setEnvironment}设置环境
+ * <li>EmbeddedValueResolverAware's {@code setEmbeddedValueResolver}设置嵌入式值解析器
+ * <li>ResourceLoaderAware's {@code setResourceLoader}设置资源加载器
+ * (only applicable when running in an application context)仅仅适用在应用上下文
+ * <li>ApplicationEventPublisherAware's {@code setApplicationEventPublisher}设置应用实践发布器
  * (only applicable when running in an application context)
- * <li>ApplicationEventPublisherAware's {@code setApplicationEventPublisher}
+ * <li>MessageSourceAware's {@code setMessageSource} 设置消息资源
  * (only applicable when running in an application context)
- * <li>MessageSourceAware's {@code setMessageSource}
+ * <li>ApplicationContextAware's {@code setApplicationContext}设置应用程序上下文
  * (only applicable when running in an application context)
- * <li>ApplicationContextAware's {@code setApplicationContext}
- * (only applicable when running in an application context)
- * <li>ServletContextAware's {@code setServletContext}
+ * <li>ServletContextAware's {@code setServletContext}设置servlet上下文
  * (only applicable when running in a web application context)
- * <li>{@code postProcessBeforeInitialization} methods of BeanPostProcessors
+ * <li>{@code postProcessBeforeInitialization} methods of BeanPostProcessors BeanPostProcessors方法
  * <li>InitializingBean's {@code afterPropertiesSet}
  * <li>a custom init-method definition
  * <li>{@code postProcessAfterInitialization} methods of BeanPostProcessors
  * </ol>
- *
+ *   当前bean工厂关闭，应用下面的生命周期方法
  * <p>On shutdown of a bean factory, the following lifecycle methods apply:
  * <ol>
  * <li>{@code postProcessBeforeDestruction} methods of DestructionAwareBeanPostProcessors
