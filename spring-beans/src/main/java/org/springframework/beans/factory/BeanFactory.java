@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.beans.factory;
 
 import org.springframework.beans.BeansException;
@@ -21,42 +5,23 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
- * The root interface for accessing a Spring bean container.
  * 访问Spring bean容器的基类接口 bean工厂类的基类
- * This is the basic client view of a bean container;
- * further interfaces such as {@link ListableBeanFactory} and
+ * 子接口有： {@link ListableBeanFactory} 和
  * {@link org.springframework.beans.factory.config.ConfigurableBeanFactory}
- * are available for specific purposes.
+ *  这个接口由持有bean定义的对象实现，其中每个bean定义由一个字符串名称唯一确定。
+ *  根据bean的定义，bean工厂将返回要么是一个独立的实例对象（原型设计模式），
+ *  要么是一个单例共享的实例（一个比单例设计模式更好的选择，在这个模式中实例是工厂范围内的单例）。
  *
- * <p>This interface is implemented by objects that hold a number of bean definitions,
- * each uniquely identified by a String name. Depending on the bean definition,
- * the factory will return either an independent instance of a contained object
- * (the Prototype design pattern), or a single shared instance (a superior
- * alternative to the Singleton design pattern, in which the instance is a
- * singleton in the scope of the factory). Which type of instance will be returned
- * depends on the bean factory configuration: the API is the same. Since Spring
- * 2.0, further scopes are available depending on the concrete application
- * context (e.g. "request" and "session" scopes in a web environment).
+ *  bean工厂返回的实例类型取决于bean工厂的配置：API是一样的。
+ *  自Spring2.0以来，根据具体的应用上下文进一步的范围可以被使用，例如：request和session 访问在web环境内。
+ *  这个方法重点是BeanFactory是应用组件的注册中心，并集中配置应用组件（不再是独立对象需要读取配置文件）
  *
- * <p>The point of this approach is that the BeanFactory is a central registry
- * of application components, and centralizes configuration of application
- * components (no more do individual objects need to read properties files,
- * for example). See chapters 4 and 11 of "Expert One-on-One J2EE Design and
- * Development" for a discussion of the benefits of this approach.
+ *   注意：通常是更好的借助于依赖注入通过setter或者构造器来配置应用对象，而不是像BeanFactory查找那样使用任何形式的p拉取配置。
+ * Spring的依赖注入功能是使用BeanFactory接口和他的子接口实现的。
  *
- * <p>Note that it is generally better to rely on Dependency Injection
- * ("push" configuration) to configure application objects through setters
- * or constructors, rather than use any form of "pull" configuration like a
- * BeanFactory lookup. Spring's Dependency Injection functionality is
- * implemented using this BeanFactory interface and its subinterfaces.
- *
- * <p>Normally a BeanFactory will load bean definitions stored in a configuration
- * source (such as an XML document), and use the {@code org.springframework.beans}
- * package to configure the beans. However, an implementation could simply return
- * Java objects it creates as necessary directly in Java code. There are no
- * constraints on how the definitions could be stored: LDAP, RDBMS, XML,
- * properties file, etc. Implementations are encouraged to support references
- * amongst beans (Dependency Injection).
+ *    通常，一个BeanFactorybean工厂将从存储bean定义的配置源加载bean的定义（像XML文档），并且使用 org.springframework.beans jar包
+ *    来配置bean对象。然而，一个实现可以简单的返回一个在Java代码内直接创建的Java对象。
+ *    没有约束条件限制bean定义如何被存储在LDAP，RDBMS，XML配置文件内等等。鼓励实现在bean中支持引用（依赖注入）
  *
  * <p>In contrast to the methods in {@link ListableBeanFactory}, all of the
  * operations in this interface will also check parent factories if this is a
