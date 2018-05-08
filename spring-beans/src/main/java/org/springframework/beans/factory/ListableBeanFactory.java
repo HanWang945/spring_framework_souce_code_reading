@@ -24,17 +24,26 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
+ * 扩展实现BeanFacotry接口以能够枚举所有的bean实例对象，而不是仅仅按照客户端请求一个一个的通过名称试图查询指定的bean实例。
+ * 通过实现当前接口，BeanFactory实现了可以预加载所有的bean定义信息，就像先基于XML的工厂
  * Extension of the {@link BeanFactory} interface to be implemented by bean factories
  * that can enumerate all their bean instances, rather than attempting bean lookup
  * by name one by one as requested by clients. BeanFactory implementations that
  * preload all their bean definitions (such as XML-based factories) may implement
  * this interface.
  *
+ * 如果这是一个继承方式的HierarchicalBeanFactory的bean工厂，返回值将不被考虑到BeanFactory的继承结构中，但是这将仅涉及在当前bean工厂内定义的bean。
+ * 使用BeanFactoryUtils帮助类可以将bean纳入它父类工厂中。
  * <p>If this is a {@link HierarchicalBeanFactory}, the return values will <i>not</i>
  * take any BeanFactory hierarchy into account, but will relate only to the beans
  * defined in the current factory. Use the {@link BeanFactoryUtils} helper class
  * to consider beans in ancestor factories too.
  *
+ * 这个接口内的方法将只重视这个工厂内定义的bean，他们将忽略以其他方式注册的任何单例bean，像ConfigurableBeanFactory的registerSingleton方法，但是除了
+ * getBeanNamesOfType和getBeansOfType这两个方法之外，它还会手动检查单例注册的bean。
+ * 当然，BeanFactory的getBean方法允许显示的访问这些特殊的bean。然而，在典型的场景中，所有的bean都将被外部的bean定义定义，所以大部分的应用不需要担心这些不同。
+ *
+
  * <p>The methods in this interface will just respect bean definitions of this factory.
  * They will ignore any singleton beans that have been registered by other means like
  * {@link org.springframework.beans.factory.config.ConfigurableBeanFactory}'s
