@@ -77,13 +77,17 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
+ * AbstractBeanFactory:实现BeanFactory接口的抽象基类，提供所有的ConfigurableBeanFactory SPI功能
  * Abstract base class for {@link org.springframework.beans.factory.BeanFactory}
  * implementations, providing the full capabilities of the
  * {@link org.springframework.beans.factory.config.ConfigurableBeanFactory} SPI.
+ * 不要假设作为一个可列表的bean工厂，因此可以被用来作为bean工厂实现的基类，它包含从后端资源读取的的bean定义.（这里访问bean定义是一个昂贵的操作）
  * Does <i>not</i> assume a listable bean factory: can therefore also be used
  * as base class for bean factory implementations which obtain bean definitions
  * from some backend resource (where bean definition access is an expensive operation).
- *
+ *  这个类提供了一个单例缓存（通过他的基类DefaultSingletonBeanRegistry进行单例/原型判定，通过FactoryBean处理别名和子bean定义的bean定义合并以及
+ *  bean 销毁通过DisposableBean接口自定义销毁方法），此外，他可以管理一个bean工厂的层级关系（继承关系）（在未知bean的情况下，委托给parent），
+ *  通过实现HierarchicalBeanFactory接口
  * <p>This class provides a singleton cache (through its base class
  * {@link org.springframework.beans.factory.support.DefaultSingletonBeanRegistry},
  * singleton/prototype determination, {@link org.springframework.beans.factory.FactoryBean}
@@ -92,7 +96,8 @@ import org.springframework.util.StringValueResolver;
  * interface, custom destroy methods). Furthermore, it can manage a bean factory
  * hierarchy (delegating to the parent in case of an unknown bean), through implementing
  * the {@link org.springframework.beans.factory.HierarchicalBeanFactory} interface.
- *
+ *  主要的模板方法由子类实现，方法有：getBeanDefinition：根据给定的bean名称检索bean定义。createBean，根据给定的bean定义创建一个bean实例
+ *  这些操作默认的实现在DefaultListableBeanFactory类和AbstractAutowireCapableBeanFactory类中可以找到。
  * <p>The main template methods to be implemented by subclasses are
  * {@link #getBeanDefinition} and {@link #createBean}, retrieving a bean definition
  * for a given bean name and creating a bean instance for a given bean definition,

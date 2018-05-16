@@ -40,10 +40,11 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * StaticListableBeanFactory为BeanFactory的静态实现类，允许以编码的方式注册存在的单例实例。不支持原型bean或者别名
  * Static {@link org.springframework.beans.factory.BeanFactory} implementation
  * which allows to register existing singleton instances programmatically.
  * Does not have support for prototype beans or aliases.
- *
+ * 作为ListableBeanFactory接口的一个简单的实现，管理已经存在的bean实例而不是创建新的基于bean定义的，不实现任何的扩展SPI接口（比如：ConfigurableBeanFactory）
  * <p>Serves as example for a simple implementation of the
  * {@link org.springframework.beans.factory.ListableBeanFactory} interface,
  * managing existing bean instances rather than creating new ones based on bean

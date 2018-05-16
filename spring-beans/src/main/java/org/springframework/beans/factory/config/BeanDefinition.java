@@ -22,10 +22,11 @@ import org.springframework.core.AttributeAccessor;
 import org.springframework.lang.Nullable;
 
 /**
+ * 一个BeanDefinition描述了一个有属性值，构造器参数值以及由具体是西安提供的进一步信息bean实例
  * A BeanDefinition describes a bean instance, which has property values,
  * constructor argument values, and further information supplied by
  * concrete implementations.
- *
+ *  这是一个最小化接口：主要的目的是允许一个BeanFactoryPostProcessor比如：PropertyPlaceholderConfigurer，反射和修改属性值和其他bean的元数据
  * <p>This is just a minimal interface: The main intention is to allow a
  * {@link BeanFactoryPostProcessor} such as {@link PropertyPlaceholderConfigurer}
  * to introspect and modify property values and other bean metadata.

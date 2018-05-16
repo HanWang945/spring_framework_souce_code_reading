@@ -38,6 +38,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ *  用于具体的、成熟的BeanDefinition类的基类，分解GenericBeanDefinition、RootBeanDefinition和ChildBeanDefinition的常见属性
  * Base class for concrete, full-fledged {@link BeanDefinition} classes,
  * factoring out common properties of {@link GenericBeanDefinition},
  * {@link RootBeanDefinition}, and {@link ChildBeanDefinition}.
