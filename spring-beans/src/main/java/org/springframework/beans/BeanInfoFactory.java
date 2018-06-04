@@ -22,14 +22,19 @@ import java.beans.IntrospectionException;
 import org.springframework.lang.Nullable;
 
 /**
+ * 创建Spring bean的BeanInfo实例的策略接口
+ * 可以用来插入自定义bean属性解析策略（例如JVM上的语言）或更高效的@link BeanInfo检索算法
  * Strategy interface for creating {@link BeanInfo} instances for Spring beans.
  * Can be used to plug in custom bean property resolution strategies (e.g. for other
  * languages on the JVM) or more efficient {@link BeanInfo} retrieval algorithms.
- *
+ *BeanInfoFactory由CachedIntrospectionResults实例化，通过使用SpringFactoriesLoader实用类。
  * <p>BeanInfoFactories are instantiated by the {@link CachedIntrospectionResults},
  * by using the {@link org.springframework.core.io.support.SpringFactoriesLoader}
  * utility class.
- *
+ *当要创建@link BeanInfo时，CachedIntrospectionResults将遍历所发现的工厂，并在每个工厂上调用
+ *  getbeaninfo（Class）。如果返回 null，则将查询下一个工厂。如果没有一个工厂支持这个类，
+ *  那么一个标准的 BeanInfo将被创建为缺省值
+ *  
  * When a {@link BeanInfo} is to be created, the {@code CachedIntrospectionResults}
  * will iterate through the discovered factories, calling {@link #getBeanInfo(Class)}
  * on each one. If {@code null} is returned, the next factory will be queried.

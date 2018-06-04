@@ -21,6 +21,28 @@ import org.springframework.beans.factory.FactoryBeanNotInitializedException;
 import org.springframework.lang.Nullable;
 
 /**
+ *
+ * 方法调用的bean工厂
+ *
+ * FactoryBean 返回一个静态或实例方法调用结果的值。
+ *
+ * 对于大多数用例而言，
+ * 最好只是将容器的内置工厂方法支持用于相同的目的，因为它在转换参数方面更为明智。
+ * 尽管当你需要调用一个不返回任何值的方法（例如，强制某种初始化发生的静态类方法）时，
+ * 这个工厂bean仍然很有用。该用例不受工厂方法支持，因为需要返回值来获取bean实例。
+ * <p>请注意，由于预计主要用于访问工厂方法，因此该工厂默认以<b>单例</ b>方式运行。
+ * 拥有bean工厂的getObject的第一个请求将导致方法调用，它的返回值将被缓存用于后续请求。
+ * 一个内部setSingleton属性可能被设置为“false”，导致该工厂在每次询问对象时调用目标方法。 <P> <B>
+
+ 注意：如果您的目标方法未产生公开结果，请考虑使用MethodInvokingBean，
+ 这样可避免此MethodInvokingFactoryBean附带的类型确定和生命周期限制。</ b> <p>
+ 此调用程序支持任何类型的目标方法。可以通过将setTargetMethod属性设置为表示静态方法名称的String来指定静态方法
+ ，并使用setTargetClass指定静态方法所在的Class。或者，可以通过将setTargetObject属性设置为目标对象，
+ 并将setTargetMethod属性指定为要在该目标对象上调用的方法的名称来指定目标实例方法。
+ 方法调用的参数可以通过设置setArguments参数来指定。
+ <p>根据InitializingBean契约，一旦设置了所有属性，此类就取决于afterPropertiesSet（）被调用
+
+
  * {@link FactoryBean} which returns a value which is the result of a static or instance
  * method invocation. For most use cases it is better to just use the container's
  * built-in factory method support for the same purpose, since that is smarter at

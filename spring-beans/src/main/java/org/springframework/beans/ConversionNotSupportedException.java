@@ -20,7 +20,9 @@ import java.beans.PropertyChangeEvent;
 
 import org.springframework.lang.Nullable;
 
+
 /**
+ * 当一个bean的属性发现没有合适的编辑器或者转换器的时候抛出的异常
  * Exception thrown when no suitable editor or converter can be found for a bean property.
  *
  * @author Arjen Poutsma

@@ -28,13 +28,27 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 简单的一个方法调用bean：仅仅调用一个目标方法，不期望一个结果暴露给容器
  * Simple method invoker bean: just invoking a target method, not expecting a result
  * to expose to the container (in contrast to {@link MethodInvokingFactoryBean}).
+ *这个调用器支持任意种类的方法。
+ * 一个静态方法可能通过setTargetMethod属性特别设置
+ *
+ *
+ * 这个调用者支持任何一种目标方法。
+ * 可以通过将{@link #setTargetMethod targetMethod}属性设置为表示静态方法名称的String来指定静态方法，
+ * {@link #setTargetClass targetClass}指定静态方法在其上定义的Class。
+ * 或者，可以通过将{@link #setTargetObject targetObject}属性设置为目标对象，
+ * 并使用{@link #setTargetMethod targetMethod}属性作为要在该目标对象上调用的方法的名称来指定目标实例方法。
+ * 方法调用的参数可以通过设置{@link #setArguments arguments}属性来指定。
+ * <p>根据InitializingBean契约，一旦设置了所有属性，此类就取决于{@link #afterPropertiesSet（）}被调用
  *
  * <p>This invoker supports any kind of target method. A static method may be specified
  * by setting the {@link #setTargetMethod targetMethod} property to a String representing
  * the static method name, with {@link #setTargetClass targetClass} specifying the Class
- * that the static method is defined on. Alternatively, a target instance method may be
+ * that the static method is defined on.
+ *
+ * Alternatively, a target instance method may be
  * specified, by setting the {@link #setTargetObject targetObject} property as the target
  * object, and the {@link #setTargetMethod targetMethod} property as the name of the
  * method to call on that target object. Arguments for the method invocation may be

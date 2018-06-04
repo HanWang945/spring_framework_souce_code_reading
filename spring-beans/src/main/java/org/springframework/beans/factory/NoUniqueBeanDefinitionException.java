@@ -23,6 +23,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
+ * 当一个bean工厂BeanFactory调用一个ban实例的时候被发现有匹配的有多个候选然而只需要匹配一个期望的时候
  * Exception thrown when a {@code BeanFactory} is asked for a bean instance for which
  * multiple matching candidates have been found when only one matching bean was expected.
  *

@@ -29,6 +29,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 实现BeanFactoryPostProcessor，以允许便利的注册自定义属性编辑器PropertyEditor
  * {@link BeanFactoryPostProcessor} implementation that allows for convenient
  * registration of custom {@link PropertyEditor property editors}.
  *

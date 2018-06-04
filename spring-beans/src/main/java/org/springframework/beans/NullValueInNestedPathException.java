@@ -17,6 +17,9 @@
 package org.springframework.beans;
 
 /**
+ *
+ *
+ * 当导航一个无效的嵌套的属性路径时候遇到一个空指针异常
  * Exception thrown when navigation of a valid nested property
  * path encounters a NullPointerException.
  *

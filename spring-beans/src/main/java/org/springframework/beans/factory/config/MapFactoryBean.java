@@ -25,6 +25,7 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
+ * 分享Map 实例的简单工厂
  * Simple factory for shared Map instances. Allows for central setup
  * of Maps via the "map" element in XML bean definitions.
  *

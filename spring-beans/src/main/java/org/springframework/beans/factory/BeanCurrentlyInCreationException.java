@@ -17,7 +17,9 @@
 package org.springframework.beans.factory;
 
 /**
+ * 在引用一个当前正在创建的bean的时候抛出的异常
  * Exception thrown in case of a reference to a bean that's currently in creation.
+ * 通常发生在构造器自动装配与当前构建的bean匹配时
  * Typically happens when constructor autowiring matches the currently constructed bean.
  *
  * @author Juergen Hoeller

@@ -22,6 +22,9 @@ import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.lang.Nullable;
 
 /**
+ * 属性访问器
+ * 可以访问指定属性的类的公共接口（像一个对象的bean属性或者对象的字段。
+ * 充当BeanWrapper的基类。
  * Common interface for classes that can access named properties
  * (such as bean properties of an object or fields in an object)
  * Serves as base interface for {@link BeanWrapper}.

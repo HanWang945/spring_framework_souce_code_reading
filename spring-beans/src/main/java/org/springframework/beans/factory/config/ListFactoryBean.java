@@ -25,6 +25,8 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
+ * 分享实例列表的简单工厂
+ * 允许通过XML bean定义中的“列表”元素来设置列表
  * Simple factory for shared List instances. Allows for central setup
  * of Lists via the "list" element in XML bean definitions.
  *

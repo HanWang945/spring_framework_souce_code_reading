@@ -17,6 +17,8 @@
 package org.springframework.beans.factory;
 
 /**
+ *
+ * 尽管bean的创建目前不允许bean被请求（例如，在bean工厂的关闭阶段，但是在bean被请求的情况下抛出异常。
  * Exception thrown in case of a bean being requested despite
  * bean creation currently not being allowed (for example, during
  * the shutdown phase of a bean factory).

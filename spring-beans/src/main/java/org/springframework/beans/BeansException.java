@@ -20,11 +20,12 @@ import org.springframework.core.NestedRuntimeException;
 import org.springframework.lang.Nullable;
 
 /**
+ * bean 包和子包内所有异常的抽象基类
  * Abstract superclass for all exceptions thrown in the beans package
  * and subpackages.
- *
- * <p>Note that this is a runtime (unchecked) exception. Beans exceptions
- * are usually fatal; there is no reason for them to be checked.
+ *  注意：这是一个运行时非检查异常。Bean异常通常都是致命的，他们没有理由被检查
+ * <p>Note that this is a runtime (unchecked) exception.
+ * Beans exceptions are usually fatal; there is no reason for them to be checked.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

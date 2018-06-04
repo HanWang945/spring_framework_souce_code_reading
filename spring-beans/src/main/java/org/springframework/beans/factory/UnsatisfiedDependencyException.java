@@ -21,6 +21,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
+ * 当一个bean依赖于另外在bean工厂定义里面没有指定的 一个bean或者一个简单的属性 的时候，尽管依赖价差已经启用。
  * Exception thrown when a bean depends on other beans or simple properties
  * that were not specified in the bean factory definition, although
  * dependency checking was enabled.

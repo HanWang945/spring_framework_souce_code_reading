@@ -19,6 +19,7 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
+ * 抛出一个不可恢复bean包及其子包内遇到的的问题，
  * Thrown on an unrecoverable problem encountered in the
  * beans packages or sub-packages, e.g. bad class or field.
  *

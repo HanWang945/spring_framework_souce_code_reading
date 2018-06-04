@@ -29,7 +29,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringValueResolver;
 
-/**
+/**用于遍历BeanDefinition对象，特别是其中包含的属性值和构造函数参数值和解析bean元数据值的访问类
  * Visitor class for traversing {@link BeanDefinition} objects, in particular
  * the property values and constructor argument values contained in them,
  * resolving bean metadata values.

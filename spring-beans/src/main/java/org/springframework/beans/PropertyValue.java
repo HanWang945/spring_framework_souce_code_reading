@@ -23,11 +23,14 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 为单个bean属性保存信息和值的对象
  * Object to hold information and value for an individual bean property.
+ * 这里使用一个对象而不是仅仅保存所有的属性在一个以属性名为键map里面，这样允许更加的可扩展性，并且
+ * 这样有以一个优化的方式处理索引属性等的能力
  * Using an object here, rather than just storing all properties in
  * a map keyed by property name, allows for more flexibility, and the
  * ability to handle indexed properties etc in an optimized way.
- *
+ * 注意，这个值不需要是最终所需的类型：@link BeanWrapper实现应该处理任何必要的转换，因为这个对象不知道它将被应用到什么对象
  * <p>Note that the value doesn't need to be the final required type:
  * A {@link BeanWrapper} implementation should handle any necessary conversion,
  * as this object doesn't know anything about the objects it will be applied to.

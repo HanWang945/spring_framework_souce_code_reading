@@ -19,12 +19,19 @@ package org.springframework.beans.factory.config;
 import org.springframework.beans.BeansException;
 
 /**
+ * BeanNameAware               获得到容器中Bean的名称
+ BeanFactoryAware            获得当前bean Factory,从而调用容器的服务
+ ApplicationContextAware         当前的application context从而调用容器的服务
+ MessageSourceAware          得到message source从而得到文本信息
+ ApplicationEventPublisherAware      应用时间发布器,用于发布事件
+ ResourceLoaderAware         获取资源加载器,可以获得外部资源文件
+ 允许自定修改一个应用上下文的bean定义信息，以适应上下文的bean工厂下的bean属性值
  * Allows for custom modification of an application context's bean definitions,
  * adapting the bean property values of the context's underlying bean factory.
- *
+ * 应用上下文可以自动发现bean工厂后置处理器BeanFactoryPostProcessor的bean 在他们的bean 定义中和 其他创建完的bean应用他们的时候。
  * <p>Application contexts can auto-detect BeanFactoryPostProcessor beans in
  * their bean definitions and apply them before any other beans get created.
- *
+ *自定义配置文件对于系统管理员是有用的，可以在应用上下文内重写bean属性配置
  * <p>Useful for custom config files targeted at system administrators that
  * override bean properties configured in the application context.
  *

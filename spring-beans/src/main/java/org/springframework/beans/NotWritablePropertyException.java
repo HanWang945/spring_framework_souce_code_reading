@@ -19,6 +19,7 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
+ * 试图设置一个不可写的，没有setter方法的属性的异常
  * Exception thrown on an attempt to set the value of a property that
  * is not writable (typically because there is no setter method).
  *

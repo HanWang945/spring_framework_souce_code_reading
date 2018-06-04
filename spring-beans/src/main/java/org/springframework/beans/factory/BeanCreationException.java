@@ -26,6 +26,7 @@ import org.springframework.core.NestedRuntimeException;
 import org.springframework.lang.Nullable;
 
 /**
+ * 在一个BeanFactory bean工厂当试图从一个bean定义创建一个bean的时候遇到一个错误抛出的异常
  * Exception thrown when a BeanFactory encounters an error when
  * attempting to create a bean from a bean definition.
  *

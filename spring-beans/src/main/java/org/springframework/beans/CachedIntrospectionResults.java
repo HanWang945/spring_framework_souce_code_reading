@@ -39,26 +39,38 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.StringUtils;
 
+
 /**
+ *
+ * 缓存Java类的JavaBean PropertyDescriptor信息的内部类
+ * 在应用程序代码内不能直接使用
  * Internal class that caches JavaBeans {@link java.beans.PropertyDescriptor}
  * information for a Java class. Not intended for direct use by application code.
- *
+ *在应用程序的类加载器ClassLoader内缓存自己的描述器是必要的，而不仅仅依赖JDK的系统范围的BeanInfo缓存。是为了在避免类加载器关闭的泄露
  * <p>Necessary for own caching of descriptors within the application's
  * ClassLoader, rather than rely on the JDK's system-wide BeanInfo cache
  * (in order to avoid leaks on ClassLoader shutdown).
- *
+ *  信息是静态缓存的，因此我们不需要为我们操作的每个JavaBean创建该类的新对象。
+ *  因此，该类实现了工厂设计模式，使用私有构造器和静态@link forclass（Class）工厂方法来获得实例
  * <p>Information is cached statically, so we don't need to create new
  * objects of this class for every JavaBean we manipulate. Hence, this class
  * implements the factory design pattern, using a private constructor and
  * a static {@link #forClass(Class)} factory method to obtain instances.
  *
+ * 注意为了缓存的高效工作，一些先决条件需要被满足。
  * <p>Note that for caching to work effectively, some preconditions need to be met:
+ *更喜欢将Spring jar与应用程序类放在相同的类加载器中的安排，这样就可以在任何情况下与应用程序的生命周期一起使用干净的缓存。
  * Prefer an arrangement where the Spring jars live in the same ClassLoader as the
  * application classes, which allows for clean caching along with the application's
- * lifecycle in any case. For a web application, consider declaring a local
+ * lifecycle in any case.
+ * 对于web应用程序，认为在多类加载器的情况下，web.xml中声明一个本地的IntrospectorCleanupListener，也可以进行高效的缓存
+ * For a web application, consider declaring a local
  * {@link org.springframework.web.util.IntrospectorCleanupListener} in {@code web.xml}
  * in case of a multi-ClassLoader layout, which will allow for effective caching as well.
- *
+ *在一个非清理类加载器ClassLoader安排下也就是没有设立一个清理监听器的情况下，
+ * 这个类将会回到基于弱引用的缓存模型，
+ * 每当垃圾收集器删除它们时，它就会重新创建被请求的条目。
+ * 在这样的场景中，考虑IGNORE_BEANINFO_PROPERTY_NAME系统属性
  * <p>In case of a non-clean ClassLoader arrangement without a cleanup listener having
  * been set up, this class will fall back to a weak-reference-based caching model that
  * recreates much-requested entries every time the garbage collector removed them. In

@@ -20,6 +20,7 @@ import org.springframework.beans.FatalBeanException;
 import org.springframework.lang.Nullable;
 
 /**
+ *当bean工厂遇到一个无效的bean定义时抛出的异常
  * Exception thrown when a BeanFactory encounters an invalid bean definition:
  * e.g. in case of incomplete or contradictory bean metadata.
  *

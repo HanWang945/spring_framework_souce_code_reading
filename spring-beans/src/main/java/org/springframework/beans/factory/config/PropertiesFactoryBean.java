@@ -25,15 +25,18 @@ import org.springframework.core.io.support.PropertiesLoaderSupport;
 import org.springframework.lang.Nullable;
 
 /**
+ * 允许在bean工厂中将类路径下的可以用的propertise文件当做一个properties实例
+ * 通过一个bean引用 可以将其注入到任意的bean Properties类型的属性上。
  * Allows for making a properties file from a classpath location available
  * as Properties instance in a bean factory. Can be used to populate
  * any bean property of type Properties via a bean reference.
- *
+ * 支持从一个properties文件内或者在当前FactoryBean设置的本地propertise加载。
+ * 创建的Properties实例由本地值和加载的值合并。如果本地propertiese和类路径下没有设置将在初始化的时候抛出异常。
  * <p>Supports loading from a properties file and/or setting local properties
  * on this FactoryBean. The created Properties instance will be merged from
  * loaded and local values. If neither a location nor local properties are set,
  * an exception will be thrown on initialization.
- *
+ * 可以创建单例或者每个请求创建一个新的实例。默认是单例。
  * <p>Can create a singleton or a new object on each request.
  * Default is a singleton.
  *

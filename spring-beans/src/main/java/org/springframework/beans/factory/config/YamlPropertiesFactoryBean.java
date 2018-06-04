@@ -23,7 +23,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.core.CollectionFactory;
 import org.springframework.lang.Nullable;
 
-/**
+/**从yaml资源读取的Properties的工厂，公开字符串属性值的扁平结构
+ *
  * Factory for {@link java.util.Properties} that reads from a YAML source,
  * exposing a flat structure of String property values.
  *

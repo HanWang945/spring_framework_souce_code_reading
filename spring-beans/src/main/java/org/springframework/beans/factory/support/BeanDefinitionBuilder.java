@@ -24,6 +24,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 设计模式：建造器模式 （ builder pattern）
+ *
+ * 使用建造器模式构造BeanDefinition的编程式方法
  * Programmatic means of constructing
  * {@link org.springframework.beans.factory.config.BeanDefinition BeanDefinitions}
  * using the builder pattern. Intended primarily for use when implementing Spring 2.0

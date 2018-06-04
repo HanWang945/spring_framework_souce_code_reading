@@ -24,6 +24,8 @@ import java.util.Map;
 import org.springframework.lang.Nullable;
 
 /**
+ * PropertyAccessor接口的抽象实现
+ * 提供所有便利方法的基本实现，实际属性访问的实现留给子类
  * Abstract implementation of the {@link PropertyAccessor} interface.
  * Provides base implementations of all convenience methods, with the
  * implementation of actual property access left to subclasses.

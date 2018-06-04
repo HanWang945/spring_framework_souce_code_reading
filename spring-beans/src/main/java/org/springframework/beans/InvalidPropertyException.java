@@ -19,6 +19,7 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
+ * 当引用一个无效的bean属性的时候抛出的异常
  * Exception thrown when referring to an invalid bean property.
  * Carries the offending bean class and property name.
  *

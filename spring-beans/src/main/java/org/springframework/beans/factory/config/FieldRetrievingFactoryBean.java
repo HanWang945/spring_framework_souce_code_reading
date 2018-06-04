@@ -31,8 +31,10 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 一个检索静态或者非静态字段值的工厂Bean
  * {@link FactoryBean} which retrieves a static or non-static field value.
  *
+ * 通常用于检索公共的静态常量字段。
  * <p>Typically used for retrieving public static final constants. Usage example:
  *
  * <pre class="code">// standard definition for exposing a static field, specifying the "staticField" property

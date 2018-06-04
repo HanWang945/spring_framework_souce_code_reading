@@ -19,6 +19,8 @@ package org.springframework.beans.factory.config;
 import org.springframework.beans.BeanMetadataElement;
 
 /**
+ * //以抽象的方式公开对bean名称的引用的接口 这个接口并不一定意味着对实际bean实例的引用;它只是表示一个bean的名称的逻辑引用。
+ * 作为通用接口，由任何类型的bean引用持有者实现，例如RuntimeBeanReference和RuntimeBeanNameReference。
  * Interface that exposes a reference to a bean name in an abstract fashion.
  * This interface does not necessarily imply a reference to an actual bean
  * instance; it just expresses a logical reference to the name of a bean.

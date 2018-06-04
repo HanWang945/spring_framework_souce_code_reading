@@ -19,30 +19,40 @@ package org.springframework.beans.factory;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface to be implemented by objects used within a {@link BeanFactory} which
- * are themselves factories for individual objects. If a bean implements this
+ * 由在BeanFactory中使用的对象来实现的接口，它们本身就是单个对象的工厂
+ * Interface to be implemented by objects used within a {@link BeanFactory} which are themselves factories for individual objects.
+ *
+ * 如果一个bean实现这个接口，将使用它作为一个公开对象的工厂，不直接作为一个将要被暴露的bean实例
+ * If a bean implements this
  * interface, it is used as a factory for an object to expose, not directly as a
  * bean instance that will be exposed itself.
- *
+ *如果一个bean实现这个接口将不被当做一个正常的ban
+ * 一个FactoryBean按照bean的方式进行定义，但是这个对象通过getObject()方法所暴露的bean引用对象总是他创建的。
  * <p><b>NB: A bean that implements this interface cannot be used as a normal bean.</b>
  * A FactoryBean is defined in a bean style, but the object exposed for bean
  * references ({@link #getObject()}) is always the object that it creates.
- *
+ *FactoryBean可以指出单例和原型，还可以候按照要求懒加载对象或者在启动的时候立即创建对象。
  * <p>FactoryBeans can support singletons and prototypes, and can either create
- * objects lazily on demand or eagerly on startup. The {@link SmartFactoryBean}
+ * objects lazily on demand or eagerly on startup.
+ * SmartFactoryBean接口允许公开更详细的行为元数据。
+ * The {@link SmartFactoryBean}
  * interface allows for exposing more fine-grained behavioral metadata.
- *
+ * 这个接口在框架内部也被大量使用，比如AOP的ProxyFactoryBean或者JndiObjectFactoryBean
+ * 他也可以被用作自定义组件，然而这仅仅是公共的基础上设施代码。
  * <p>This interface is heavily used within the framework itself, for example for
  * the AOP {@link org.springframework.aop.framework.ProxyFactoryBean} or the
  * {@link org.springframework.jndi.JndiObjectFactoryBean}. It can be used for
  * custom components as well; however, this is only common for infrastructure code.
- *
+ *FactoryBean是一个程序上的约定。实现不应该依赖于注解驱动或者其他反射工具。
  * <p><b>{@code FactoryBean} is a programmatic contract. Implementations are not
  * supposed to rely on annotation-driven injection or other reflective facilities.</b>
+ * 方法getObjectType()和getObject()的调用可能提前到达在bootstrap过程，甚至在任何后置处理器创建之前。
+ * 如果你需要访问其他bean，实现BeanFactoryAware这个接口可以以编程方式获得他们
  * {@link #getObjectType()} {@link #getObject()} invocations may arrive early in
  * the bootstrap process, even ahead of any post-processor setup. If you need access
  * other beans, implement {@link BeanFactoryAware} and obtain them programmatically.
- *
+ *最后，FactoryBean对象参与包含BeanFactory的bean创建的同步块
+ *除了在FactoryBean本身（或类似的）中延迟初始化的目的之外，通常不需要内部同步。
  * <p>Finally, FactoryBean objects participate in the containing BeanFactory's
  * synchronization of bean creation. There is usually no need for internal
  * synchronization other than for purposes of lazy initialization within the

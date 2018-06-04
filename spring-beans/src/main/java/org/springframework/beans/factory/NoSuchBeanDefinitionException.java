@@ -21,8 +21,11 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
+ * 当一个BeanFactory调用一个bean实例化的时候没有发现一个定义的时候抛出的异常
  * Exception thrown when a {@code BeanFactory} is asked for a bean instance for which it
- * cannot find a definition. This may point to a non-existing bean, a non-unique bean,
+ * cannot find a definition.
+ *  这可能意味着一个不存在的bean，一个不唯一的bean或者一个手动注册的单例实例化没有关联bean定义的bean
+ * This may point to a non-existing bean, a non-unique bean,
  * or a manually registered singleton instance without an associated bean definition.
  *
  * @author Rod Johnson

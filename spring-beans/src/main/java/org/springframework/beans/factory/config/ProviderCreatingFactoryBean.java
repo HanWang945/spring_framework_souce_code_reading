@@ -25,6 +25,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * JSR-330 是 Java 的依赖注入标准
+ *FactoryBean实现返回一个JSR-330 javax.inject.Provider值。反过来返回来自BeanFactory的bean
+ *
  * A {@link org.springframework.beans.factory.FactoryBean} implementation that
  * returns a value which is a JSR-330 {@link javax.inject.Provider} that in turn
  * returns a bean sourced from a {@link org.springframework.beans.factory.BeanFactory}.

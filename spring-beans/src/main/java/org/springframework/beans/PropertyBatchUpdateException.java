@@ -24,6 +24,10 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 组合异常，由个别的PropertyAccessException实例所构成。
+ *
+ * 类对象在绑定处理过程的是被创建，并且如果必要的话添加这些错误
+ * 当遇到应用程序层级的PropertyAccessExceptions异常，这个绑定处理过程继续，应用那些可以应用的变化并且存储该类对象中的拒绝更改
  * Combined exception, composed of individual PropertyAccessException instances.
  * An object of this class is created at the beginning of the binding
  * process, and errors added to it as necessary.

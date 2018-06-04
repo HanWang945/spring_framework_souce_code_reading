@@ -20,6 +20,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 当一个bean不匹配期望的类型的时候抛出的异常
  * Thrown when a bean doesn't match the expected type.
  *
  * @author Rod Johnson

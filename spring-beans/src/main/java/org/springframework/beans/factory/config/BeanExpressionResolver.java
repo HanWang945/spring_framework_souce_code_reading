@@ -20,6 +20,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.lang.Nullable;
 
 /**
+ * 通过将其作为表达式来评估一个值的策略接口
  * Strategy interface for resolving a value through evaluating it
  * as an expression, if applicable.
  *

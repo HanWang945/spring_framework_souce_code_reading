@@ -24,6 +24,7 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
+ * 可以枚举的bean工厂
  * 扩展实现BeanFacotry接口以能够枚举所有的bean实例对象，而不是仅仅按照客户端请求一个一个的通过名称试图查询指定的bean实例。
  * 通过实现当前接口，BeanFactory实现了可以预加载所有的bean定义信息，就像先基于XML的工厂
  * Extension of the {@link BeanFactory} interface to be implemented by bean factories

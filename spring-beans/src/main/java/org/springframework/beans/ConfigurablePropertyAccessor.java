@@ -20,9 +20,11 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.lang.Nullable;
 
 /**
+ *
+ * 封装一个PropertyAccessor的配置方法的接口
+ * 还扩展了PropertyEditorRegistry接口，它定义PropertyEditor管理的方法
  * Interface that encapsulates configuration methods for a PropertyAccessor.
- * Also extends the PropertyEditorRegistry interface, which defines methods
- * for PropertyEditor management.
+ * Also extends the PropertyEditorRegistry interface, which defines methods for PropertyEditor management.
  *
  * <p>Serves as base interface for {@link BeanWrapper}.
  *

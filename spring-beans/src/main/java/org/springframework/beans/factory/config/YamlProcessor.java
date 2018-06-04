@@ -43,6 +43,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ * yaml工厂的基类
  * Base class for YAML factories.
  *
  * @author Dave Syer

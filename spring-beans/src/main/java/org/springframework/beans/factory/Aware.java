@@ -17,16 +17,13 @@
 package org.springframework.beans.factory;
 
 /**
- * Marker superinterface indicating that a bean is eligible to be
- * notified by the Spring container of a particular framework object
- * through a callback-style method. Actual method signature is
- * determined by individual subinterfaces, but should typically
- * consist of just one void-returning method that accepts a single
- * argument.
- *
- * <p>Note that merely implementing {@link Aware} provides no default
- * functionality. Rather, processing must be done explicitly, for example
- * in a {@link org.springframework.beans.factory.config.BeanPostProcessor BeanPostProcessor}.
+ * 标记超级接口，指示bean有资格通过Spring容器通过回调方式方法通知特定框架对象
+ * 实际方法签名，由单个子类接口决定，但是通常只包含一个接受单个参数的void返回方法
+ * Marker superinterface indicating that a bean is eligible to be notified by the Spring container of a particular framework object through a callback-style method.
+ * Actual method signature is determined by individual subinterfaces, but should typically consist of just one void-returning method that accepts a single argument.
+ * 注意，仅仅实现Aware接口，没有提供默认功能。相反，处理必须显式地完成，例如在BeanPostProcessor中
+ * <p>Note that merely implementing {@link Aware} provides no default functionality. Rather, processing must be done explicitly, for example in a BeanPostProcessor
+ *  {@link org.springframework.beans.factory.config.BeanPostProcessor BeanPostProcessor}.
  * Refer to {@link org.springframework.context.support.ApplicationContextAwareProcessor}
  * and {@link org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory}
  * for examples of processing {@code *Aware} interface callbacks.

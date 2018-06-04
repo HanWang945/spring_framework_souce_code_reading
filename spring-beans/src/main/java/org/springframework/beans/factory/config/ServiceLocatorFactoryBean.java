@@ -36,11 +36,22 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 一个FactoryBean实现，该实现需要一个接口，该接口必须具有带签名MyType xxx（）
+ * 或MyType xxx（MyIdType id）（通常为MyService getService（）或代码MyService getService（String id））
+ * 的一个或多个方法，并创建一个动态代理实现这个接口，委托给一个底层的BeanFactory。
+ *
+ *
  * A {@link FactoryBean} implementation that takes an interface which must have one or more
  * methods with the signatures {@code MyType xxx()} or {@code MyType xxx(MyIdType id)}
  * (typically, {@code MyService getService()} or {@code MyService getService(String id)})
  * and creates a dynamic proxy which implements that interface, delegating to an
  * underlying {@link org.springframework.beans.factory.BeanFactory}.
+ *这种服务定位器允许通过使用适当的自定义定位器界面来将调用代码从API链接解耦。
+ * 它们通常用于<b>原型bean </ b>，即用于应该为每个调用返回一个新实例的工厂方法。
+ * 客户端通过setter或构造函数注入接收对服务定位器的引用，以便能够根据需要调用定位器的工厂方法。
+ * <b>对于单例bean，最好使用目标bean的直接setter或构造函数注入。</ b>
+ * <p>在调用no-arg工厂方法或单个arg工厂方法时，String id为{如果在工厂中正好<b>一个
+ * </ b> bean匹配工厂方法的返回类型，则返回该bean，否则返回{@link org.springframework.beans.factory.NoSuchBeanDefinitionException}被抛出
  *
  * <p>Such service locators permit the decoupling of calling code from
  * the {@link org.springframework.beans.factory.BeanFactory} API, by using an
@@ -58,6 +69,13 @@ import org.springframework.util.StringUtils;
  * {@link org.springframework.beans.factory.NoSuchBeanDefinitionException}
  * is thrown.
  *
+ *
+ *<p>使用非null（和非空）参数调用single-arg工厂方法时，
+ * 代理返回etBean（String）调用的结果，使用传入ID的字符串化版本作为bean 名称。
+ * 工厂方法参数通常是一个String，但也可以是int或自定义枚举类型，例如，通过{@code toString}进行字符串化。
+ * 生成的字符串可以作为bean名称使用，前提是相应的bean在bean工厂中定义。 或者，可以定义setServiceMappings（java.util.Properties）
+ * 服务ID和bean名称之间的自定义映射。 作为一个例子，考虑下面的服务定位器接口。
+ * 请注意，该接口不依赖于任何Spring API
  * <p>On invocation of the single-arg factory method with a non-null (and
  * non-empty) argument, the proxy returns the result of a
  * {@link org.springframework.beans.factory.BeanFactory#getBean(String)} call,

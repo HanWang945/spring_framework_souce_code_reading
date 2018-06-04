@@ -19,6 +19,7 @@ package org.springframework.beans;
 import java.beans.PropertyChangeEvent;
 
 /**
+ * 当一个bean属性的getter或者setter方法抛出一个异常的时候抛出
  * Thrown when a bean property getter or setter method throws an exception,
  * analogous to an InvocationTargetException.
  *

@@ -17,10 +17,12 @@
 package org.springframework.beans.factory;
 
 /**
+ * 当前接口由一个需要对 他们所有的属性一旦已经由bean工厂BeanFactory设置完毕后做出反应的bean实现
+ * 比如：执行自定义初始化，或者仅仅检查所有的已经设置的托管的属性
  * Interface to be implemented by beans that need to react once all their
  * properties have been set by a BeanFactory: for example, to perform custom
  * initialization, or merely to check that all mandatory properties have been set.
- *
+ * 另一种是实现InitializingBean接口是指定一个自定义的初始化方法
  * <p>An alternative to implementing InitializingBean is specifying a custom
  * init-method, for example in an XML bean definition.
  * For a list of all bean lifecycle methods, see the

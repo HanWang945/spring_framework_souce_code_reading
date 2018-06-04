@@ -22,9 +22,11 @@ import org.springframework.core.MethodParameter;
 import org.springframework.lang.Nullable;
 
 /**
+ * 定义类型转换方法的接口。通常连同PropertyEditorRegistry一起被实现，但是这不是必要的。
+ *
  * Interface that defines type conversion methods. Typically (but not necessarily)
  * implemented in conjunction with the {@link PropertyEditorRegistry} interface.
- *
+ *  由于TypeConverter实现通常基于线程不安全的PropertyEditors，TypeConverters它自己也不认为是线程安全的。
  * <p><b>Note:</b> Since TypeConverter implementations are typically based on
  * {@link java.beans.PropertyEditor PropertyEditors} which aren't thread-safe,
  * TypeConverters themselves are <em>not</em> to be considered as thread-safe either.

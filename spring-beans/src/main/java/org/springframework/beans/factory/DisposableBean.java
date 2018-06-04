@@ -17,6 +17,7 @@
 package org.springframework.beans.factory;
 
 /**
+ * 当前接口由那些在销毁中需要释放资源的bean实现
  * Interface to be implemented by beans that want to release resources
  * on destruction. A BeanFactory is supposed to invoke the destroy
  * method if it disposes a cached singleton. An application context

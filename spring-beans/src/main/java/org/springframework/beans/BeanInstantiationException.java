@@ -22,6 +22,8 @@ import java.lang.reflect.Method;
 import org.springframework.lang.Nullable;
 
 /**
+ * bean实例化失败异常类
+ * 当实例化一个bean是失败的时候抛出。携带有实例化失败的bean类
  * Exception thrown when instantiation of a bean failed.
  * Carries the offending bean class.
  *

@@ -23,6 +23,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 当视尝试设置一个bean属性时抛出的一个类型不匹配异常
  * Exception thrown on a type mismatch when trying to set a bean property.
  *
  * @author Rod Johnson

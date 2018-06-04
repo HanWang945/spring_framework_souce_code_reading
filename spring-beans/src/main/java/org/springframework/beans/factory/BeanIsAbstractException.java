@@ -17,6 +17,7 @@
 package org.springframework.beans.factory;
 
 /**
+ * 当一个bean实例化需要一个已经被标记为抽象bean定义的时候抛出的异常
  * Exception thrown when a bean instance has been requested for
  * a bean definition which has been marked as abstract.
  *

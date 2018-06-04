@@ -29,9 +29,12 @@ import org.springframework.util.MethodInvoker;
 import org.springframework.util.ReflectionUtils;
 
 /**
+ *
+ * MethodInvoker的子类，尝试通过TypeConverter类型转换给定的实际目标方法参数
  * Subclass of {@link MethodInvoker} that tries to convert the given
  * arguments for the actual target method via a {@link TypeConverter}.
  *
+ * 支持参数转换扩展，特别在调用一个特别超负载的方法
  * <p>Supports flexible argument conversions, in particular for
  * invoking a specific overloaded method.
  *

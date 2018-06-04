@@ -19,14 +19,19 @@ package org.springframework.beans.factory;
 import org.springframework.beans.FatalBeanException;
 
 /**
+ *
+ *    如果一个bean还没有完成的初始化（比如因为他调用一个循环引用）的时候 调用FactoryBean的getObject方法的时候抛出的异常
  * Exception to be thrown from a FactoryBean's {@code getObject()} method
  * if the bean is not fully initialized yet, for example because it is involved
  * in a circular reference.
  *
+ *  注意：与FactoryBean的循环引用不能通过急切地缓存单例实例来解决，就像普通bean一样
  * <p>Note: A circular reference with a FactoryBean cannot be solved by eagerly
- * caching singleton instances like with normal beans. The reason is that
- * <i>every</i> FactoryBean needs to be fully initialized before it can
- * return the created bean, while only <i>specific</i> normal beans need
+ * caching singleton instances like with normal beans.
+ * 原因是每个FactoryBean在他返回创建bean之前需要一个完整的初始化，而仅仅只需要初始化特殊的正常bean。
+ * 也就说，如果一个合作bean实际在初始化的时候调用他们 而不是仅仅保存引用
+ * The reason is that every FactoryBean needs to be fully initialized before it can
+ * return the created bean, while only specific normal beans need
  * to be initialized - that is, if a collaborating bean actually invokes
  * them on initialization instead of just storing the reference.
  *

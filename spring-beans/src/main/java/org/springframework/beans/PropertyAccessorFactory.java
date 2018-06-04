@@ -17,6 +17,8 @@
 package org.springframework.beans;
 
 /**
+ *简单的工厂外观，用于获取@link PropertyAccessor实例，特别是@link BeanWrapper实例。隐藏实际的目标实现类及其扩展的公共签名
+ *
  * Simple factory facade for obtaining {@link PropertyAccessor} instances,
  * in particular for {@link BeanWrapper} instances. Conceals the actual
  * target implementation classes and their extended public signature.

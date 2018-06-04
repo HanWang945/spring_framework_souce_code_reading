@@ -25,10 +25,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * 一个FactoryBean实现，它返回一个ObjectFactory值，它反过来返回来自BeanFactory的bean
  * A {@link org.springframework.beans.factory.FactoryBean} implementation that
  * returns a value which is an {@link org.springframework.beans.factory.ObjectFactory}
  * that in turn returns a bean sourced from a {@link org.springframework.beans.factory.BeanFactory}.
  *
+ * 同样的，这样可能用于避免有一个客户端对象直接调用BeanFactory的getBean方法获取来自于BeanFactory的一个bean（通常是原型），这个将违反
+ * 控制原理反转。相反，在使用这个类时，客户端对象可以被馈送一个ObjectFactory实例作为一个属性，它直接只返回一个目标bean（同样，它通常是一个原型bean
  * <p>As such, this may be used to avoid having a client object directly calling
  * {@link org.springframework.beans.factory.BeanFactory#getBean(String)} to get
  * a (typically prototype) bean from a
@@ -38,6 +41,7 @@ import org.springframework.util.Assert;
  * {@link org.springframework.beans.factory.ObjectFactory} instance as a
  * property which directly returns only the one target bean (again, which is
  * typically a prototype bean).
+ *
  *
  * <p>A sample config in an XML-based
  * {@link org.springframework.beans.factory.BeanFactory} might look as follows:

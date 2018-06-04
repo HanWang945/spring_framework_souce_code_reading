@@ -20,8 +20,15 @@ import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
 /**
+ * 简单的策略允许工具控制源元数据是如何被附加到bean定义元数据的
  * Simple strategy allowing tools to control how source metadata is attached
  * to the bean definition metadata.
+ *
+ *
+ *在转换期间，配置转换器可能提供了附加源元数据的能力。
+ *
+ *
+ * 他们将以一种通用格式提供这种元数据，在附加到bean定义元数据之前，可以通过@ SourceExtractor进一步修改这些元数据。
  *
  * <p>Configuration parsers <strong>may</strong> provide the ability to attach
  * source metadata during the parse phase. They will offer this metadata in a

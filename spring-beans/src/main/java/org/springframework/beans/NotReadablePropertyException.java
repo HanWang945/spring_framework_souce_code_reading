@@ -17,6 +17,7 @@
 package org.springframework.beans;
 
 /**
+ *试图获得一个属性值的异常 这是不可读的，因为没有getter方法
  * Exception thrown on an attempt to get the value of a property
  * that isn't readable, because there's no getter method.
  *
