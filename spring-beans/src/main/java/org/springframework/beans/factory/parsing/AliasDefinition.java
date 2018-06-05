@@ -21,6 +21,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * alias标签
  * Representation of an alias that has been registered during the parsing process.
  *
  * @author Juergen Hoeller

@@ -43,6 +43,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * 实现BeanPostProcessor接口，强制配置所需的JavaBean属性
  * {@link org.springframework.beans.factory.config.BeanPostProcessor} implementation
  * that enforces required JavaBean properties to have been configured.
  * Required bean properties are detected through a Java 5 annotation:

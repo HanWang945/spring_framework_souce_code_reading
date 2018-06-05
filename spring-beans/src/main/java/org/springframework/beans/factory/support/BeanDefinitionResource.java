@@ -25,6 +25,7 @@ import org.springframework.core.io.AbstractResource;
 import org.springframework.util.Assert;
 
 /**
+ * AbstractResource的子类
  * Descriptive {@link org.springframework.core.io.Resource} wrapper for
  * a {@link org.springframework.beans.factory.config.BeanDefinition}.
  *

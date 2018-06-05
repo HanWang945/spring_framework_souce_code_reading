@@ -29,6 +29,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
+ * 抽象bean定义解析器
  * Abstract {@link BeanDefinitionParser} implementation providing
  * a number of convenience methods and a
  * {@link AbstractBeanDefinitionParser#parseInternal template method}

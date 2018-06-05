@@ -40,6 +40,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 
 /**
+ * bean工厂抽象实现类
  * 实现FactoryBean接口的简单模板超类，创建一个单例或者原型对象，依赖于一个标志。
  * Simple template superclass for {@link FactoryBean} implementations that
  * creates a singleton or a prototype object, depending on a flag.

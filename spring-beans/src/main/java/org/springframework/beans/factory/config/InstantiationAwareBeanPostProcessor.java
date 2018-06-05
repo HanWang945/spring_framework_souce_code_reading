@@ -23,6 +23,8 @@ import org.springframework.beans.PropertyValues;
 import org.springframework.lang.Nullable;
 
 /**
+ * bean实例化感知后置处理器
+ * BeanPostProcessor的子接口，添加了bean实例化前和实例化后的回调，但是在明确属性被设置或者自动装配之前。
  * Subinterface of {@link BeanPostProcessor} that adds a before-instantiation callback,
  * and a callback after instantiation but before explicit properties are set or
  * autowiring occurs.

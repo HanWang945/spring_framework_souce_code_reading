@@ -23,6 +23,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
+ * bean装配信息解析器的注解版
  * {@link org.springframework.beans.factory.wiring.BeanWiringInfoResolver} that
  * uses the Configurable annotation to identify which classes need autowiring.
  * The bean name to look up will be taken from the {@link Configurable} annotation

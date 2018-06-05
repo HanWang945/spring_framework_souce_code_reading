@@ -19,6 +19,7 @@ package org.springframework.beans.factory.config;
 import org.springframework.beans.BeansException;
 
 /**
+ * 销毁感知bean后置处理器
  * BeanPostProcessor的子接口，添加一个销毁前的回调
  * Subinterface of {@link BeanPostProcessor} that adds a before-destruction callback.
  *

@@ -42,6 +42,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 实现DisposableBean和Runnable接口，在一个给定的Bean实例上执行各种销毁步骤
  * Adapter that implements the {@link DisposableBean} and {@link Runnable}
  * interfaces performing various destruction steps on a given bean instance:
  * <ul>

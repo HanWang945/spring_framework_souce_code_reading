@@ -30,6 +30,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 如果依赖性被声明为泛型类型，那么它将执行与候选类型匹配的完整泛型类型匹配的基本 AutowireCandidateResolver
  * Basic {@link AutowireCandidateResolver} that performs a full generic type
  * match with the candidate's type if the dependency is declared as a generic type
  * (e.g. Repository&lt;Customer&gt;).

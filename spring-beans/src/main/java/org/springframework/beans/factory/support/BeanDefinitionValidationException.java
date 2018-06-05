@@ -20,7 +20,7 @@ import org.springframework.beans.FatalBeanException;
 
 /**
  * Exception thrown when the validation of a bean definition failed.
- *
+ * 验证bean定义失败时抛出的异常
  * @author Juergen Hoeller
  * @since 21.11.2003
  * @see AbstractBeanDefinition#validate()

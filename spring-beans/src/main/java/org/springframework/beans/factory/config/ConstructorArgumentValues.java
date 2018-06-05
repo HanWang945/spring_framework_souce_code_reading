@@ -32,6 +32,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 构造器参数值
  * 通常作为一个bean定义的一部分：持有构造器参数值
  * Holder for constructor argument values, typically as part of a bean definition.
  *

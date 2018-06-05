@@ -25,6 +25,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
+ * FactoryBean 操作的抽象基类
  * Abstract base class for FactoryBeans operating on the
  * JDK 1.6 {@link java.util.ServiceLoader} facility.
  *

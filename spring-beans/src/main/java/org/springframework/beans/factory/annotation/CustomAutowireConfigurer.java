@@ -29,6 +29,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 一个BeanFactoryPostProcessor实现，允许方便的注册自定义自动装配限定类型
  * A {@link org.springframework.beans.factory.config.BeanFactoryPostProcessor}
  * implementation that allows for convenient registration of custom autowire
  * qualifier types.

@@ -20,6 +20,8 @@ import org.springframework.beans.BeanMetadataAttributeAccessor;
 import org.springframework.util.Assert;
 
 /**
+ * 用于解决自动装配候选的限定符
+ * 一个包含一个或多个这样限定符的bean定义允许对字段或参量上的注释进行细粒度匹配，以便自动连接。
  * Qualifier for resolving autowire candidates. A bean definition that
  * includes one or more such qualifiers enables fine-grained matching
  * against annotations on a field or parameter to be autowired.

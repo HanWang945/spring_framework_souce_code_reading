@@ -21,6 +21,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * Bean后置处理器
+ *
  * 允许对新bean实例进行定制修改的工厂钩子，比如检查标记接口或用代理包装它们
  * Factory hook that allows for custom modification of new bean instances,
  * e.g. checking for marker interfaces or wrapping them with proxies.

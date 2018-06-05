@@ -27,8 +27,11 @@ import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.BeanInitializationException;
 
 /**
+ * 属性资源配置器在一个应用上下文定义中重写bean属性值
  * Property resource configurer that overrides bean property values in an application
- * context definition. It <i>pushes</i> values from a properties file into bean definitions.
+ * context definition.
+ * 它把属性文件内的值推送到bean定义中。
+ * It <i>pushes</i> values from a properties file into bean definitions.
  *
  * <p>Configuration lines are expected to be of the following form:
  *

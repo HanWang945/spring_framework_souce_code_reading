@@ -25,6 +25,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 弃用bean的警告
  * bean工厂后置处理器，它记录一个弃用bean的警告
  * Bean factory post processor that logs a warning for {@link Deprecated @Deprecated} beans.
  *

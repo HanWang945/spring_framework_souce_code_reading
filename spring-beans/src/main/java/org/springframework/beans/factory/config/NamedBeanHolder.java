@@ -20,6 +20,7 @@ import org.springframework.beans.factory.NamedBean;
 import org.springframework.util.Assert;
 
 /**
+ * 给定bean名称的和bean实例的持有者
  * A simple holder for a given bean name plus bean instance.
  *
  * @author Juergen Hoeller

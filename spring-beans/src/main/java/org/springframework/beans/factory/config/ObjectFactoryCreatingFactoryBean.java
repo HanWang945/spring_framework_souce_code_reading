@@ -25,6 +25,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * 对象工厂创建工厂bean
  * 一个FactoryBean实现，它返回一个ObjectFactory值，它反过来返回来自BeanFactory的bean
  * A {@link org.springframework.beans.factory.FactoryBean} implementation that
  * returns a value which is an {@link org.springframework.beans.factory.ObjectFactory}

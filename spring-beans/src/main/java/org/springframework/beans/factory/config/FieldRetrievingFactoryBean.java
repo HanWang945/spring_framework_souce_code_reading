@@ -31,6 +31,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 字段检索工厂bean
  * 一个检索静态或者非静态字段值的工厂Bean
  * {@link FactoryBean} which retrieves a static or non-static field value.
  *

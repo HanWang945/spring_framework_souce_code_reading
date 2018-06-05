@@ -31,6 +31,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringValueResolver;
 
 /**
+ * 可配置bean工厂
  * 大部分由bean工厂实现配置接口。提供一个可以配置bean工厂的工具，除了在BeanFacotry接口内的bean工厂的客户端方法
  * Configuration interface to be implemented by most bean factories. Provides
  * facilities to configure a bean factory, in addition to the bean factory

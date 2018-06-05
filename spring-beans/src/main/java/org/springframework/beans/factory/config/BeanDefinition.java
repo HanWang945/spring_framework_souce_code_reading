@@ -22,6 +22,7 @@ import org.springframework.core.AttributeAccessor;
 import org.springframework.lang.Nullable;
 
 /**
+ * bean定义信息
  * 一个BeanDefinition描述了一个有属性值，构造器参数值以及由具体是西安提供的进一步信息bean实例
  * A BeanDefinition describes a bean instance, which has property values,
  * constructor argument values, and further information supplied by

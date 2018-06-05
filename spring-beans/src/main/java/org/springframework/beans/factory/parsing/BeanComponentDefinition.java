@@ -27,6 +27,7 @@ import org.springframework.beans.factory.config.BeanReference;
 import org.springframework.lang.Nullable;
 
 /**
+ * bean组件定义
  * 基于一个标准BeanDefinition的ComponentDefinition，公布给定的bean定义和内部bean定义以及所给定bbean的bean引用
  * ComponentDefinition based on a standard BeanDefinition, exposing the given bean
  * definition as well as inner bean definitions and bean references for the given bean.

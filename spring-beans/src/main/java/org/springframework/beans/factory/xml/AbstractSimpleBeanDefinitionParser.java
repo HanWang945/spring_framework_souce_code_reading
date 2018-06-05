@@ -26,6 +26,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ * bean定义解析器的抽象简单实现
  * Convenient base class for when there exists a one-to-one mapping
  * between attribute names on the element that is to be parsed and
  * the property names on the {@link Class} being configured.

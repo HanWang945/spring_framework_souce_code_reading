@@ -28,6 +28,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 方法调用bean
  * 简单的一个方法调用bean：仅仅调用一个目标方法，不期望一个结果暴露给容器
  * Simple method invoker bean: just invoking a target method, not expecting a result
  * to expose to the container (in contrast to {@link MethodInvokingFactoryBean}).

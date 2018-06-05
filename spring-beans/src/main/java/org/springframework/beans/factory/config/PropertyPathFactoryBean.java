@@ -32,6 +32,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ * 属性路径工厂bean
  * 在给定目标对象上评估属性路径的FactoryBean
  * {@link FactoryBean} that evaluates a property path on a given target object.
  *

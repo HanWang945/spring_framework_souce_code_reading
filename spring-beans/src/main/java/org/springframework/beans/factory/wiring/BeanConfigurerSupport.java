@@ -31,8 +31,10 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Convenient base class for bean configurers that can perform Dependency Injection
- * on objects (however they may be created). Typically subclassed by AspectJ aspects.
+ * 为bean配置器提供方便的基类，可以对对象执行依赖注入（但是它们可能被创建）
+ * 通常由AspectJ方面子类化
+ * Convenient base class for bean configurers that can perform Dependency Injection on objects (however they may be created)
+ * . Typically subclassed by AspectJ aspects.
  *
  * <p>Subclasses may also need a custom metadata resolution strategy, in the
  * {@link BeanWiringInfoResolver} interface. The default implementation looks for

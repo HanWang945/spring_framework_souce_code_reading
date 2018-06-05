@@ -45,6 +45,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ReflectionUtils;
 
 /**
+ * 实现BeanPostProcessor接口，调用注解的初始化和销毁方法。允许一个注解代替Spring的InitializingBean和DisposableBean回调接口
  * {@link org.springframework.beans.factory.config.BeanPostProcessor} implementation
  * that invokes annotated init and destroy methods. Allows for an annotation
  * alternative to Spring's {@link org.springframework.beans.factory.InitializingBean}

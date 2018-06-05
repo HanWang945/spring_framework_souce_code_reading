@@ -26,6 +26,7 @@ import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.lang.Nullable;
 
 /**
+ * 可自动装配的bean工厂
  * bean工厂类实现当前这个扩展BeanFacotry的接口，可以获得自动装配，前提是他们想要为已经存在的bean实例公布它的功能。
  * Extension of the {@link org.springframework.beans.factory.BeanFactory}
  * interface to be implemented by bean factories that are capable of

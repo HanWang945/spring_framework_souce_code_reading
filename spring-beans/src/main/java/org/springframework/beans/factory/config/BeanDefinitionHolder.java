@@ -24,6 +24,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * bean定义持有者
  * 带有名称和别名的BeanDefinition的持有者
  * 可以注册为内bean的占位符
  * 也可以用于内部bean定义的编程式注册

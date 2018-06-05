@@ -19,6 +19,7 @@ package org.springframework.beans.factory.config;
 import org.springframework.beans.BeansException;
 
 /**
+ * bean工厂后置处理器
  * BeanNameAware               获得到容器中Bean的名称
  BeanFactoryAware            获得当前bean Factory,从而调用容器的服务
  ApplicationContextAware         当前的application context从而调用容器的服务

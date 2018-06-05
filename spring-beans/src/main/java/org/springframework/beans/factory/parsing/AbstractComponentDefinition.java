@@ -20,6 +20,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanReference;
 
 /**
+ * ComponentDefinition接口的基本实现基
  * Base implementation of {@link ComponentDefinition} that provides a basic implementation of
  * {@link #getDescription} which delegates to {@link #getName}. Also provides a base implementation
  * of {@link #toString} which delegates to {@link #getDescription} in keeping with the recommended

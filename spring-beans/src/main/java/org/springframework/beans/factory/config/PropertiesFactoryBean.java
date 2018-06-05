@@ -25,6 +25,7 @@ import org.springframework.core.io.support.PropertiesLoaderSupport;
 import org.springframework.lang.Nullable;
 
 /**
+ * 属性工厂bean
  * 允许在bean工厂中将类路径下的可以用的propertise文件当做一个properties实例
  * 通过一个bean引用 可以将其注入到任意的bean Properties类型的属性上。
  * Allows for making a properties file from a classpath location available

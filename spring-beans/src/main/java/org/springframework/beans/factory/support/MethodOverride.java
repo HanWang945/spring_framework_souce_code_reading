@@ -24,8 +24,9 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Object representing the override of a method on a managed object by the IoC
- * container.
+ * 表示重写一个由IoC容器对托管对象上的方法
+ * Object representing the override of a method on a managed object by the IoC container
+ * .
  *
  * <p>Note that the override mechanism is <em>not</em> intended as a generic
  * means of inserting crosscutting code: use AOP for that.

@@ -20,6 +20,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * bean表达式上下文
  * 用于评估bean定义中的表达式的上下文对象
  * Context object for evaluating an expression within a bean definition.
  *

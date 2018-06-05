@@ -36,6 +36,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 服务加载工厂bean
  * 一个FactoryBean实现，该实现需要一个接口，该接口必须具有带签名MyType xxx（）
  * 或MyType xxx（MyIdType id）（通常为MyService getService（）或代码MyService getService（String id））
  * 的一个或多个方法，并创建一个动态代理实现这个接口，委托给一个底层的BeanFactory。
